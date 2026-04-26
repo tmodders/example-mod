@@ -6,6 +6,72 @@ using Terraria.ModLoader;
 
 namespace ExampleMod.Content.Biomes;
 
+public class ExampleGrassSeedsItem : ModItem
+{
+    public override void SetDefaults()
+    {
+        Item.maxStack = Item.CommonMaxStack;
+        
+        Item.consumable = true;
+
+        Item.autoReuse = true;
+
+        // Indicates the item's swing direction will change accordingly to the player's direction.
+        Item.useTurn = true;
+        
+        // Matches the dimensions of the item's texture.
+        Item.width = 16;
+        Item.height = 16;
+
+        // Indicates the item takes 15 frames to be used.
+        Item.useTime = 15;
+        
+        // Indicates the animation of the item lasts 15 frames.
+        Item.useAnimation = 15;
+    }
+
+    public override bool? UseItem(Player player)
+    {
+        // Checks whether the local player is being handled.
+        if (player.whoAmI != Main.myPlayer)
+        {
+            return false;
+        }
+
+        var x = Player.tileTargetX;
+        var y = Player.tileTargetY;
+        
+        var tile = Framing.GetTileSafely(x, y);
+
+        // Checks whether the tile meet the conditions to be overridden by the seeds.
+        if (!tile.HasTile || tile.TileType != TileID.Dirt)
+        {
+            return false;
+        }
+        
+        // Checks whether the player is attempting to use the item in a tile within placement range.
+        var ranges = player.position.X / 16f - Player.tileRangeX - player.inventory[player.selectedItem].tileBoost - player.blockRange <= x
+                     && (player.position.X + player.width) / 16f + Player.tileRangeX + player.inventory[player.selectedItem].tileBoost - 1f + player.blockRange >= x
+                     && player.position.Y / 16f - Player.tileRangeY - player.inventory[player.selectedItem].tileBoost - player.blockRange <= y
+                     && (player.position.Y + player.height) / 16f + Player.tileRangeY + player.inventory[player.selectedItem].tileBoost - 2f + player.blockRange >= y;
+
+        if (!ranges)
+        {
+            return false;
+        }
+        
+        WorldGen.PlaceTile(x, y, ModContent.TileType<ExampleGrassTile>(), true);
+        
+        if (Main.netMode == NetmodeID.Server)
+        {
+            // Synchronizes the tile placement across the server.
+            NetMessage.SendTileSquare(-1, x, y);
+        }
+        
+        return true;
+    }
+}
+
 public class ExampleGrassTile : ModTile
 {
     public override void SetStaticDefaults()
@@ -52,7 +118,7 @@ public class ExampleGrassTile : ModTile
         MineResist = 0.5f;
         
         HitSound = SoundID.Dig;
-        DustType = DustID.GreenMoss;
+        DustType = DustID.Dirt;
     }
 
     public override void NumDust(int i, int j, bool fail, ref int num)
@@ -104,7 +170,7 @@ public class ExampleGrassTile : ModTile
     {
         const int chance = 15;
 
-        // Checks if we meet the chance conditions to place a vine below the tile.
+        // Checks whether the tiles meet the chance conditions to place a vine below the tile.
         if (!WorldGen.genRand.NextBool(chance))
         {
             return;
@@ -113,7 +179,7 @@ public class ExampleGrassTile : ModTile
         var tile = Framing.GetTileSafely(i, j);
         var below = Framing.GetTileSafely(i, j + 1);
 
-        // Checks if we meet the tile conditions to place a vine below the tile.
+        // Checks whether the tiles meet the conditions to place a vine below the tile.
         if (tile.BottomSlope || below.HasTile || below.LiquidType == LiquidID.Lava)
         {
             return;
@@ -130,14 +196,14 @@ public class ExampleGrassTile : ModTile
         }
         
         // Synchronizes the tile placement across the server.
-        NetMessage.SendTileSquare(-1, i, j + 1, 1);
+        NetMessage.SendTileSquare(-1, i, j + 1);
     }
 
     private static void UpdateFoliage(int i, int j)
     {
         const int chance = 15;
 
-        // Checks if we meet the chance conditions to place foliage above the tile.
+        // Checks whether the tiles meet the chance conditions to place a foliage above the tile.
         if (!WorldGen.genRand.NextBool(chance))
         {
             return;
@@ -146,7 +212,7 @@ public class ExampleGrassTile : ModTile
         var tile = Framing.GetTileSafely(i, j);
         var above = Framing.GetTileSafely(i, j - 1);
         
-        // Checks if we meet the tile conditions to place foliage above the tile.
+        // Checks whether the tiles meet the conditions to place foliage above the tile.
         if (tile.BottomSlope || above.HasTile || above.LiquidType == LiquidID.Lava)
         {
             return;
@@ -166,6 +232,6 @@ public class ExampleGrassTile : ModTile
         }
         
         // Synchronizes the tile placement across the server.
-        NetMessage.SendTileSquare(-1, i, j + 1, 1);
+        NetMessage.SendTileSquare(-1, i, j + 1);
     }
 }
