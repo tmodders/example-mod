@@ -20,8 +20,8 @@ public class ExampleBulletItem : ModItem
     {
         Item.DamageType = DamageClass.Ranged;
         
-        // Sets the damage and knockback of the ammunition, respectively.
-        Item.SetWeaponValues(10, 1f);
+        Item.damage = 10;
+        Item.knockBack = 1f;
         
         Item.maxStack = Item.CommonMaxStack;
         

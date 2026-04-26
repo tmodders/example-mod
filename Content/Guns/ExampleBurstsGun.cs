@@ -12,6 +12,9 @@ public class ExampleBurstsGunItem : ModItem
     {
         Item.DamageType = DamageClass.Ranged;
         
+        Item.damage = 10;
+        Item.knockBack = 1f;
+        
         Item.consumeAmmoOnLastShotOnly = true;
         
         // Indicates the item does not deal contact damage.

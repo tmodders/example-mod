@@ -15,6 +15,9 @@ public class ExampleRandomSpreadGunItem : ModItem
     {
         Item.DamageType = DamageClass.Ranged;
         
+        Item.damage = 10;
+        Item.knockBack = 1f;
+        
         // Indicates the item does not deal contact damage.
         Item.noMelee = true;
 
