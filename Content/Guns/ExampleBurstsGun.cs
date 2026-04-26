@@ -17,7 +17,7 @@ public class ExampleBurstsGunItem : ModItem
         
         Item.consumeAmmoOnLastShotOnly = true;
         
-        // Indicates the item does not deal contact damage.
+        // Marks that the item does not deal any contact damage.
         Item.noMelee = true;
 
         // Matches the dimensions of the item's texture.
@@ -29,29 +29,31 @@ public class ExampleBurstsGunItem : ModItem
         // The amount of bursts.
         const int bursts = 3;
         
-        // The duration of each burst.
+        // The duration of each burst, in frames.
         const int duration = 4;
         
-        // Indicates the item fires one shot every 4 frames during the burst.
+        // Sets the item's use time to 4, which means the item will take 4 frames to be used.
         Item.useTime = duration;
         
-        // Indicates the animation lasts long enough to fire all shots in the burst.
+        // Sets the item's use animation to 12, which means the item's animation will last for 12 frames.
         Item.useAnimation = duration * bursts;
+        
+        // Note: Making useAnimation greater than useTime will make the item look like it was used only once, despite being used several times during the animation.
 
         const int delay = duration * bursts + 10;
 
-        // Indicates the item waits until all bursts are shot plus an additional 10 frames before it can be reused.
+        // Defines that the item waits until all bursts are shot plus an additional 10 frames before it can be reused.
         Item.reuseDelay = delay;
         
         Item.useStyle = ItemUseStyleID.Shoot;
 
-        // Indicates the velocity of the projectile that the item shoots, in pixels per frame.
+        // Sets the velocity of the projectile that the item shoots, in pixels per frame.
         Item.shootSpeed = 16f;
 
-        // Indicates the type of the projectile that the item shoots.
+        // Sets the type of the projectile that the item shoots.
         Item.shoot = ModContent.ProjectileType<ExampleBulletProjectile>();
 
-        // Indicates the type of ammo that the projectile uses.
+        // Sets the type of ammo that the item uses.
         Item.useAmmo = AmmoID.Bullet;
     }
 }

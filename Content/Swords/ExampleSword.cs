@@ -23,11 +23,11 @@ public class ExampleSword : ModItem
         
         Item.UseSound = SoundID.Item1;
 
-        // Indicates the item takes 20 frames to be used.
-        Item.useTime = 20;
+        // Sets the item's use time to 25, which means the item will take 25 frames to be used.
+        Item.useTime = 25;
         
-        // Indicates the animation of the item lasts 20 frames.
-        Item.useAnimation = 20;
+        // Sets the item's use animation to 25, which means the item's animation will last for 25 frames.
+        Item.useAnimation = 25;
 
         Item.useStyle = ItemUseStyleID.Swing;
     }

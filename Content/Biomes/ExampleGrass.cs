@@ -16,17 +16,17 @@ public class ExampleGrassSeedsItem : ModItem
 
         Item.autoReuse = true;
 
-        // Indicates the item's swing direction will change accordingly to the player's direction.
+        // Marks that the item's swing direction will change accordingly to the player's direction.
         Item.useTurn = true;
         
         // Matches the dimensions of the item's texture.
         Item.width = 16;
         Item.height = 16;
 
-        // Indicates the item takes 15 frames to be used.
+        // Sets the item's use time to 15, which means the item will take 15 frames to be used.
         Item.useTime = 15;
         
-        // Indicates the animation of the item lasts 15 frames.
+        // Sets the item's use animation to 15, which means the item's animation will last for 15 frames.
         Item.useAnimation = 15;
     }
 
@@ -78,7 +78,7 @@ public class ExampleGrassTile : ModTile
         Main.tileMergeDirt[Type] = true;
         Main.tileBlockLight[Type] = true;
 
-        // Indicates the tile spreads to dirt.
+        // Marks that the tile spreads to dirt.
         TileID.Sets.Grass[Type] = true;
         
         // If your grass spreads to other tile types, set the field below to true:
@@ -101,7 +101,7 @@ public class ExampleGrassTile : ModTile
         TileID.Sets.SpreadOverground[Type] = true;
         TileID.Sets.SpreadUnderground[Type] = true;
         
-        // Indicates the tile can be overridden when using WorldGen.OreRunner().
+        // Marks that the tile can be overridden when using WorldGen.OreRunner().
         TileID.Sets.CanBeClearedDuringOreRunner[Type] = true;
         
         TileID.Sets.CanBeDugByShovel[Type] = true;
@@ -126,6 +126,7 @@ public class ExampleGrassTile : ModTile
 
     public override void KillTile(int i, int j, ref bool fail, ref bool effectOnly, ref bool noItem)
     {
+        // Checks if the tile was meant to be destroyed.
         if (fail)
         {
             return;
@@ -133,7 +134,7 @@ public class ExampleGrassTile : ModTile
 
         var tile = Framing.GetTileSafely(i, j);
 
-        // Instead of actually destroying the tile, we turn the grass into dirt if it was meant to be destroyed.
+        // Instead of destroying the tile, we turn the tile into dirt.
         tile.TileType = TileID.Dirt;
     }
 

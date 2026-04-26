@@ -15,29 +15,29 @@ public class ExampleHammer : ModItem
         Item.damage = 10;
         Item.knockBack = 1f;
 
-        // Indicates melee speed modifiers will only affect the rate at which the item swings as a weapon, but wont increase its mining speed.
+        // Marks that melee speed modifiers will only affect the rate at which the item swings as a weapon, but wont increase its mining speed.
         Item.attackSpeedOnlyAffectsWeaponAnimation = true;
         
         Item.autoReuse = true;
         
-        // Indicates the item's swing direction will change accordingly to the player's direction.
+        // Marks that the item's swing direction will change accordingly to the player's direction.
         Item.useTurn = true;
         
         // Matches the dimensions of the item's texture.
         Item.width = 16;
         Item.height = 16;
         
-        // Indicates the power of the hammer.
+        // Sets the power of the hammer.
         Item.hammer = 50;
 
         Item.UseSound = SoundID.Item1;
 
-        // Indicates the item takes 10 frames to be used.
-        Item.useTime = 10;
+        // Sets the item's use time to 10, which means the item will take 15 frames to be used.
+        Item.useTime = 15;
         
-        // Indicates the animation of the item lasts 15 frames.
+        // Sets the item's use animation to 15, which means the item's animation will last for 15 frames.
         Item.useAnimation = 15;
-
+        
         Item.useStyle = ItemUseStyleID.Swing;
     }
 }

@@ -18,7 +18,7 @@ public class ExampleRandomSpreadGunItem : ModItem
         Item.damage = 10;
         Item.knockBack = 1f;
         
-        // Indicates the item does not deal contact damage.
+        // Marks that the item does not deal any contact damage.
         Item.noMelee = true;
 
         // Matches the dimensions of the item's texture.
@@ -27,21 +27,21 @@ public class ExampleRandomSpreadGunItem : ModItem
 
         Item.UseSound = SoundID.Item4;
 
-        // Indicates the item takes 15 frames to be used.
+        // Sets the item's use time to 15, which means the item will take 15 frames to be used.
         Item.useTime = 15;
         
-        // Indicates the animation of the item lasts 15 frames.
+        // Sets the item's use animation to 15, which means the item's animation will last for 15 frames.
         Item.useAnimation = 15;
         
         Item.useStyle = ItemUseStyleID.Shoot;
 
-        // Indicates the velocity of the projectile that the item shoots, in pixels per frame.
+        // Sets the velocity of the projectile that the item shoots, in pixels per frame.
         Item.shootSpeed = 16f;
 
-        // Indicates the type of the projectile that the item shoots.
+        // Sets the type of the projectile that the item shoots.
         Item.shoot = ModContent.ProjectileType<ExampleBulletProjectile>();
 
-        // Indicates the type of ammo that the projectile uses.
+        // Sets the type of ammo that the projectile item.
         Item.useAmmo = AmmoID.Bullet;
     }
 
