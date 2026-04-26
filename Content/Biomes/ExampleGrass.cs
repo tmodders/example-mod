@@ -211,7 +211,7 @@ public class ExampleGrassTile : ModTile
         }
         
         // TODO: Replace with ExampleFoliage.
-        const int type = TileID.Vines;
+        const int type = TileID.Plants;
 
         // TODO: Replace with ExampleFoliage styles.
         var style = Main.rand.Next(0, 8);

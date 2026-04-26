@@ -27,10 +27,10 @@ public class ExampleBurstsGunItem : ModItem
         Item.UseSound = SoundID.Item4;
         
         // The amount of bursts.
-        var bursts = 3;
+        const int bursts = 3;
         
         // The duration of each burst.
-        var duration = 4;
+        const int duration = 4;
         
         // Indicates the item fires one shot every 4 frames during the burst.
         Item.useTime = duration;
@@ -38,7 +38,7 @@ public class ExampleBurstsGunItem : ModItem
         // Indicates the animation lasts long enough to fire all shots in the burst.
         Item.useAnimation = duration * bursts;
 
-        var delay = duration * bursts + 10;
+        const int delay = duration * bursts + 10;
 
         // Indicates the item waits until all bursts are shot plus an additional 10 frames before it can be reused.
         Item.reuseDelay = delay;
