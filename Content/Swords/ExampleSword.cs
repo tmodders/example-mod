@@ -3,6 +3,8 @@ using Terraria.ModLoader;
 
 namespace Toolkit.Content.Swords;
 
+// For more implementation details, visit: https://github.com/tmodders/toolkit/blob/main/docs/content/swords/example-sword.md
+
 /// <summary>
 ///     Provides a practical example of a sword.
 /// </summary>

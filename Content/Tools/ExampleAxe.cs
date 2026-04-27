@@ -3,6 +3,8 @@ using Terraria.ModLoader;
 
 namespace Toolkit.Content.Tools;
 
+// For more implementation details, visit: https://github.com/tmodders/toolkit/blob/main/docs/content/tools/example-axe.md
+
 /// <summary>
 ///     Provides a practical example of an axe.
 /// </summary>

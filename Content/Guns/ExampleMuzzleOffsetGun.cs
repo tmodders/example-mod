@@ -5,6 +5,8 @@ using Terraria.ModLoader;
 
 namespace Toolkit.Content.Guns;
 
+// For more implementation details, visit: https://github.com/tmodders/toolkit/blob/main/docs/content/guns/example-muzzle-offset-gun.md
+
 /// <summary>
 ///     Provides a practical example of a gun that shoots bullets with a muzzle offset.
 /// </summary>

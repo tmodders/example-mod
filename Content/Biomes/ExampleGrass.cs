@@ -6,6 +6,8 @@ using Terraria.ModLoader;
 
 namespace Toolkit.Content.Biomes;
 
+// For more implementation details, visit: https://github.com/tmodders/toolkit/blob/main/docs/content/biomes/example-grass.md
+
 /// <summary>
 ///     Provides a practical example of grass seeds that turns dirt into example grass.
 /// </summary>

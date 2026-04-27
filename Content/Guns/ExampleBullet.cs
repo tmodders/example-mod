@@ -6,6 +6,8 @@ using Terraria.ModLoader;
 
 namespace Toolkit.Content.Guns;
 
+// For more implementation details, visit: https://github.com/tmodders/toolkit/blob/main/docs/content/guns/example-bullet.md
+
 /// <summary>
 ///     Provides a practical example of a bullet item.
 /// </summary>

@@ -3,6 +3,8 @@ using Terraria.ModLoader;
 
 namespace Toolkit.Content.Guns;
 
+// For more implementation details, visit: https://github.com/tmodders/toolkit/blob/main/docs/content/guns/example-bursts-gun.md
+
 /// <summary>
 ///     Provides a practical example of a gun that shoots bullets in bursts.
 /// </summary>
