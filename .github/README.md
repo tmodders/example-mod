@@ -1,6 +1,6 @@
 <img src="https://github.com/tmodders/.github/blob/main/assets/logo.svg" align="right" width="64px" height="64px"/>
 
-# tModders Example Mod
+# tModders: Toolkit
 A collection of practical examples for developing tModLoader mods.
 
 ---
