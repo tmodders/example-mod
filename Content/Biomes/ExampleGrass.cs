@@ -6,6 +6,9 @@ using Terraria.ModLoader;
 
 namespace Toolkit.Content.Biomes;
 
+/// <summary>
+///     Provides a practical example of grass seeds that turns dirt into example grass.
+/// </summary>
 public class ExampleGrassSeedsItem : ModItem
 {
     public override void SetDefaults()
@@ -66,6 +69,9 @@ public class ExampleGrassSeedsItem : ModItem
     }
 }
 
+/// <summary>
+///     Provides a practical example of a grass tile.
+/// </summary>
 public class ExampleGrassTile : ModTile
 {
     public override void SetStaticDefaults()
