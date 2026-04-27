@@ -1,4 +1,4 @@
-<img src="https://github.com/tmodders/.github/blob/main/assets/logo.svg" align="right" width="64px" height="64px"/>
+<img src="https://github.com/tmodders/.github/blob/main/assets/logo.svg" align="right" width="64px" height="64px" alt="Icon"/>
 
 # tModders: Toolkit
 A collection of practical examples for developing tModLoader mods.
